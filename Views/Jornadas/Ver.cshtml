@@ -1,0 +1,77 @@
+﻿@model BrothersGYM.Models.Empleado
+@{
+ ViewData["Title"] = "Details";
+}
+<h1 class="text-center">Jornadas de trabajo de: @Html.DisplayFor(model => model.Nombre)
+@Html.DisplayFor(model => model.Apellido) </h1>
+<div>
+ <hr />
+ <dl class="row">
+ <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IdpuestoNavigation)
+ </dt>
+ <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdpuestoNavigation.Nombre)
+ </dd>
+ <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IdpuestoNavigation.PagHora)
+ </dt>
+ <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdpuestoNavigation.PagHora)
+ </dd>
+ </dl>
+ <p class="text-end">
+ <a asp-action="Create" asp-route-id="@Model.Idempleado" class="btn btn-success" > <i
+class="bi bi-plus-circle"> Agregar jornada</i></a>
+ </p>
+ <p class="text-end">
+ <a asp-action="ExportarEmpleadosJornadasAExcel" asp-route-id="@Model.Idempleado"
+class="btn btn-primary" > <i class="bi bi-file-spreadsheet-fill"> Exportar Excel </i></a>
+ </p>
+</div>
+<hr/>
+<table class="table" id="tblJornada">
+ <thead class="table-dark">
+ <tr>
+ <th>
+ Fecha de inicio
+ </th>
+ <th>
+ Fecha de Fin
+ </th>
+ <th>
+ Horas trabajadas
+ </th>
+ <th>
+ Salario
+ </th>
+ <th></th>
+ </tr>
+ </thead>
+ <tbody>
+ @foreach (var item in Model.Jornada)
+ {
+ <tr>
+ <td>
+ @Html.DisplayFor(modelItem => item.DiaHoraEntrada)
+ </td>
+ <td>
+ @Html.DisplayFor(modelItem => item.DiaHoraSalida)
+ </td>
+ <td>
+ @Html.DisplayFor(modelItem => item.HorasTrabajadas)
+ </td>
+ <td>
+ @Html.DisplayFor(modelItem => item.SalarioBruto)
+ </td>
+ <td>
+ <a asp-action="Edit" asp-route-id="@item.Idjornada" class="btn btnwarning"> <i class="bi bi-pencil-fill"> Editar</i> </a> |
+ <a asp-action="Delete" asp-route-id="@item.Idjornada" class="btn btndanger"><i class="bi bi-x-circle-fill"> Borrar</i> </a>
+ </td>
+ </tr>
+ }
+ </tbody>
+</table>
+<div>
+ <a asp-action="Index">Volver</a>
+</div>

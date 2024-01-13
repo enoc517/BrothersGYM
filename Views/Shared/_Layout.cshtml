@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BrothersGYM</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrapicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/BrothersGYM.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/sweetalert2.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/datatables.min.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">BrothersGYM</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" ariahaspopup="tru" aria-expanded="false">Cliente</a>
+                            <div class="dropdown-menu">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="CategoriaMembresias" asp-action="Index">Categoria Membresia</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="ClienteMembresias" aspaction="Index">Cliente Membresia</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Clientes" aspaction="Index">Cliente</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="PaqueteSesiones" aspaction="Index">Paquete Sesiones</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="SesionesRayosUvs" aspaction="Index">Sesiones Rayos Uv</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Actividades" asp-action="Index">Actividades</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Salas" asp-action="Index">Salas</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Clases" aspaction="Index">Clases</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="ClienteSesiones" aspaction="Index">Cliente Sesiones</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Ventas" aspaction="Index">Ventas</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" ariahaspopup="tru" aria-expanded="false">Empleado</a>
+                            <div class="dropdown-menu">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Departamentos" asp-action="Index">Departamentos</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Puestos" asp-action="Index">Puesto</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Empleados" asp-action="Index">Empleados</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Jornadas" asp-action="Index">Jornadas</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" ariahaspopup="tru" aria-expanded="false">Productos</a>
+                            <div class="dropdown-menu">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Proveedores" asp-action="Index">Proveedores</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="CategoriaProductos" asp-action="Index">Categoria de Productos</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Productos" asp-action="Index">Productos</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="DetallePedidos" asp-action="Index">Detalle de Pedidos</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="FacturaPedidos" asp-action="Index">Factura de Pedidos</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Pedidos" asp-action="Index">Pedidos</a>
+
+                            </div>
+                        </li>
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - BrothersGYM - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/datatables.min.js" asp-append-version="true"></script>
+    <script src="~/js/sweetalert2.all.min.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

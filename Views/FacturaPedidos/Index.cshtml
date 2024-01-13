@@ -1,0 +1,65 @@
+﻿@model IEnumerable<BrothersGYM.Models.FacturaPedido>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaEmision)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Iva)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subtotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdpedidoNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdproductoNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdproveedorNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaEmision)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Iva)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subtotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdpedidoNavigation.Direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdproductoNavigation.Imagen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdproveedorNavigation.Direccion)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdfacturaPedido">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdfacturaPedido">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdfacturaPedido">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,82 @@
+﻿@model IEnumerable<BrothersGYM.Models.Empleado>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Empleados</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-outline-success"> <i class="bi bi-plus-circle"> Crear nuevo Empleado </i></a>
+</p>
+@if (Model.Count() > 0)
+{
+    <table class="table" style="">
+        <thead class="table-dark">
+            <tr>
+                <th>
+                    <h6 class="text-light">Nombre</h6>
+                </th>
+                <th>
+                    <h6 class ="text-light">Apellidos</h6>
+                </th>
+                <th>
+                    <h6 class="text-light">Direccion</h6>
+                </th>
+                <th>
+                    <h6 class="text-light">Telefono</h6>
+                </th>
+                <th>
+                    <h6 class="text-light">Cedula</h6>
+                </th>
+                <th>
+                    <h6 class="text-light">Fecha de Contratacion</h6>
+                </th>
+                <th>
+                    <h6 class="text-light">Puesto</h6>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                @if (Model.Count() > 0) { }
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Apellido)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Direccion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Telefono)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cedula)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaContratacion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IdpuestoNavigation.Nombre)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Idempleado">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Idempleado">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Idempleado">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+else
+{
+    <h2 class ="text-dark">No Hay Registro de Empleados que Mostrar</h2>
+}
+
